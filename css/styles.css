@@ -1,0 +1,91 @@
+body {
+  font-family: 'Niramit', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+  padding: 0 15%;
+}
+
+#title {
+  background-color: #eeeeee;
+}
+
+.title-com {
+  padding: 3% 8%;
+}
+
+#title h1 {
+  padding: 7% 0 0 0;
+  color: #00adb5;
+}
+
+#title p {
+  padding: 7% 0 0 0;
+  font-size: 2rem;
+}
+
+#content {
+  background-color: #00adb5;
+  padding: 0 0 3% 0;
+}
+
+#content .form-center {
+  margin: auto;
+  padding: 3% 10% 5%;
+}
+
+#content .buton {
+  /* margin: 0% 10% 3%; */
+  text-align: center;
+}
+
+#useful {
+  background-color: #393e46;
+  padding: 5% 5%;
+}
+
+#useful .card {
+  margin: 3% 3%;
+}
+
+#footer {
+  background-color: #222831;
+  padding: 2% 0 1%;
+  color: #ffffff;
+  text-align: center;
+}
+
+#table {
+  padding: 4%;
+}
+
+#table-admin .td-edit-delete {
+  text-align: center;
+
+}
+
+#top-btn {
+  text-align: center;
+  padding: 3% 0 3%;
+}
+
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0;
+  }
+
+  #title {
+    text-align: center;
+  }
+}
