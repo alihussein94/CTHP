@@ -12,6 +12,15 @@ h3 {
   font-family: 'Roboto', sans-serif;
 }
 
+hr {
+  border-style: dotted none none;
+  border-width:10px;
+  border-color: #393e46;
+  width: 20%;
+  margin: 5% auto;
+
+}
+
 .container-fluid {
   padding: 0 15%;
 }
@@ -36,12 +45,73 @@ h3 {
 
 #content {
   background-color: #00adb5;
-  padding: 7% 0 3% 0;
+  padding: 2% 0 3% 0;
+}
+
+#content .box-1 {
+  margin: 5%;
+  padding: 5%;
+  background-color: #393e46;
+  border-radius: 5px;
+
+}
+
+#content .search-title {
+  text-align: center;
+  padding: 1% 0 0 ;
+  color: #fff;
 }
 
 #content .form-center {
+  padding: 3% 5% 3%;
+}
+
+#content .form-center form {
+  background-color: #fff;
   margin: auto;
-  padding: 3% 10% 5%;
+  padding: 3px;
+  display:flex;
+  flex-direction:row;
+  border:1px solid grey;
+  border-radius: 5px;
+
+}
+
+#content .form-center input {
+ flex-grow:2;
+ border:none;
+ border-top-right-radius: 0;
+ border-bottom-right-radius: 0;
+ border-radius: 5px;
+}
+
+
+#content .form-center input:focus {
+ color: #495057;
+ background-color: #fff;
+ border-color: none;
+ outline: 0;
+ box-shadow: none;
+}
+
+#content .custom-select {
+  flex-grow:2;
+  border:none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+#content .custom-select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+#content .form-center button {
+  border-radius: 50px !important;
+
 }
 
 #content .buton {
