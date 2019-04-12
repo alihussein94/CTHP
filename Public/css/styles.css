@@ -160,14 +160,30 @@ hr {
   padding: 4%;
 }
 
-#table-admin .td-edit-delete {
-  text-align: center;
-
-}
-
 #top-btn {
   text-align: center;
   padding: 3% 0 3%;
+}
+
+#details-info {
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+
+#report_container {
+  display: grid;
+  grid-template-columns: 3fr 1fr ;
+  justify-content: space-around;
+  grid-gap: 1rem;
+  padding-top: 3rem;
+}
+
+#reports-filter .filter {
+  background-color: #393e46;
+  padding: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 5rem;
 }
 
 

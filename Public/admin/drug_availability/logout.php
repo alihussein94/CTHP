@@ -1,4 +1,4 @@
-<?php require_once('../../private/initialize.php') ?>
+<?php require_once('../../../private/initialize.php') ?>
 <?php
 
   unset($_SESSION['admin_id']);

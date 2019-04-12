@@ -1,34 +1,39 @@
-<?php require_once('../../private/initialize.php') ?>
-<?php login_check(); ?>
-<?php include('../../private/adminheader1.php') ?>
+<?php require_once('../../../private/initialize.php') ?>
+<?php include('../../../private/adminheader1.php') ?>
 <?php
 if(request_is_post()) {
-  $user =[];
-  $user['username'] = $_POST['user_name'] ?? '';
-  $user['password'] = $_POST['password'] ?? '';
+  $admin = [];
+  $admin['username'] = $_POST['user_name'] ?? '';
+  $admin['password'] = $_POST['password'] ?? '';
 
-  $errors = admin_validation($user);
+  $errors = admin_validation($admin);
   if (empty($errors)) {
+    $sql = "SELECT * FROM super_user ";
+    $sql .= "WHERE user_name='" . db_escape($db, $admin['username']) . "' ";
+    $sql .= "LIMIT 1";
 
-    $hashed_password = password_hash($user['password'], PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO user ";
-    $sql .= "(user_name, hashed_password) ";
-    $sql .= "VALUES (";
-    $sql .= "'" . db_escape($db, $user['username']) . "', ";
-    $sql .= "'" . db_escape($db, $hashed_password) . "'";
-    $sql .= ")";
-    $result = mysqli_query($db, $sql);
+    $result_set = mysqli_query($db, $sql);
+    confirm_result_set($result_set);
+    $result = mysqli_fetch_assoc($result_set);
+    mysqli_free_result($result_set);
 
     if ($result) {
-      redirect_to(url_for('/admin/index.php'));
+      //check password
+      if (password_verify($admin['password'], $result['hashed_password'])) {
+        //password true
+        login_admin($result);
+        redirect_to(url_for('/admin/drug_availability/index.php'));
+      } else {
+        //password wrong
+        $errors[] = "incorrect username or password." ;
+      }
     } else {
-      echo mysqli_error($db);
-      db_disconnect($db);
-      exit;
+      //username not right
+      $errors[] = "incorrect username or password." ;
     }
-
   }
+
+
 } else {
 
 }
@@ -46,7 +51,7 @@ if(request_is_post()) {
               <?php echo errors_display($errors); ?>
             </div>
             <div class="d-flex justify-content-center form_container">
-              <form action="<?php echo url_for('admin/add_user.php'); ?>" method="post">
+              <form action="<?php echo url_for('admin/drug_availability/login.php'); ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -60,7 +65,7 @@ if(request_is_post()) {
                   <input type="password" name="password" class="form-control input_pass" value="" placeholder="password">
                 </div>
                 <div class="d-flex justify-content-center mt-3 login_container">
-                  <button type="submit" class="btn login_btn">Add New user</button>
+                  <button type="submit" class="btn login_btn">Login</button>
                 </div>
               </form>
             </div>

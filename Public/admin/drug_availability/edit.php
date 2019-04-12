@@ -1,9 +1,9 @@
-<?php require_once('../../private/initialize.php') ?>
+<?php require_once('../../../private/initialize.php') ?>
 <?php login_check(); ?>
-<?php include('../../private/adminheader1.php') ?>
+<?php include('../../../private/adminheader1.php') ?>
 <?php
 if(!isset($_GET['id'])) {
-  redirect_to(url_for('/admin/index.php'));
+  redirect_to(url_for('/admin/drug_availability/index.php'));
 } else {
   $id = $_GET['id'];
 }
@@ -25,7 +25,7 @@ if(request_is_post()) {
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
     if ($result) {
-      redirect_to(url_for('/admin/index.php'));
+      redirect_to(url_for('/admin/drug_availability/index.php'));
     } else {
       echo mysqli_error($db);
       db_disconnect($db);
@@ -42,7 +42,7 @@ if(request_is_post()) {
 
     <section id="sds">
 
-      <a href="<?php echo url_for('/admin/index.php'); ?>">&laquo Back To Main Menu</a>
+      <a href="<?php echo url_for('/admin/drug_availability/index.php'); ?>">&laquo Back To Main Menu</a>
       <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
           <div class="user_card">
@@ -50,7 +50,7 @@ if(request_is_post()) {
               <?php echo errors_display($errors); ?>
             </div>
             <div class="d-flex justify-content-center form_container">
-              <form action="<?php echo url_for('/admin/edit.php?id=') . u(h($id)); ?>" method="post">
+              <form action="<?php echo url_for('/admin/drug_availability/edit.php?id=') . u(h($id)); ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-prescription"></i></span>

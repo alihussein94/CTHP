@@ -1,4 +1,4 @@
-<?php require_once('../../private/initialize.php') ?>
+<?php require_once('../../../private/initialize.php') ?>
 <?php
 
   $id = $_GET['id'];
@@ -13,7 +13,7 @@
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
     if ($result) {
-      redirect_to(url_for('/admin/index.php'));
+      redirect_to(url_for('/admin/drug_availability/index.php'));
     } else {
       echo mysqli_error($db);
       db_disconnect($db);

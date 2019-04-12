@@ -1,6 +1,6 @@
-<?php require_once('../../private/initialize.php') ?>
+<?php require_once('../../../private/initialize.php') ?>
 <?php login_check(); ?>
-<?php include('../../private/adminheader.php') ?>
+<?php include('../../../private/adminheader.php') ?>
 <?php
 $result_set = find_all_drugs();
 
@@ -33,7 +33,7 @@ $result_set = find_all_drugs();
             <td><?php echo h($result['drug_name']) ; ?></td>
             <td><?php echo h($result['dosage_form']) ; ?></td>
             <td class="text-center">
-              <form class="" action="<?php echo url_for('/admin/onchange.php?id=') . u(h($result['id'])); ?>" method="post">
+              <form class="" action="<?php echo url_for('/admin/drug_availability/onchange.php?id=') . u(h($result['id'])); ?>" method="post">
                 <div class="form-check">
                   <input class="form-check-input position-static" type="checkbox" name="Availability" value="1" id="blankCheckbox" onChange="this.form.submit()" aria-label="..." <?php if ($result['Availability'] == 1) { echo 'checked';} ?>>
                 </div>

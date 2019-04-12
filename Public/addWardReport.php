@@ -32,20 +32,6 @@
     <section id="content" class="report-content">
 
       <div class="box-1">
-        <!-- <div class="search-title">
-          <h2>Search Drug To Check Availability</h2>
-        </div> -->
-
-        <!-- <div class="form-center">
-          <form class="form" action="<?php echo url_for('/search.php') ?>" method="post">
-            <input class="form-control form-control-lg" type="search" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-danger btn-lg" type="submit"><i class="fas fa-search"></i></button>
-          </form>
-        </div>
-        <div class="buton">
-          <a href="<?php echo url_for('/browse.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All Drugs</button></a>
-        </div>
-      </div> -->
       <form class="ward-form" action="<?php echo url_for('/sample.php') ?>" method="post">
             <div class="report-grid-1">
               <div>
