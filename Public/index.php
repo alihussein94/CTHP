@@ -46,7 +46,7 @@
 
     <section id="content">
 
-      <div class="form-center">
+      <!-- <div class="form-center">
         <form class="form" action="<?php echo url_for('/search.php') ?>" method="post">
           <div class="row">
             <div class="col-9">
@@ -57,7 +57,18 @@
             </div>
           </div>
         </form>
-      </div>
+      </div> -->
+
+      <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input type="search" class="  search-query form-control" placeholder="jfkf" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
 
 
 
