@@ -1,5 +1,5 @@
-<?php require_once('data/initialize.php') ?>
-<?php include('data/adminheader.php') ?>
+<?php require_once('../Private/initialize.php') ?>
+<?php include('../Private/adminheader.php') ?>
 <?php login_check_user(); ?>
 
 
@@ -8,18 +8,18 @@
 <!-- navigation Bar -->
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand h1" href="#">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
+        <a class="navbar-brand h1" href="#">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/public/logout.php'); ?>">Logout</a>
 
         <!-- change CPTH => True in order to not give information -->
-        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
+        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/public/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
 
-        
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <form class="form-inline" action="<?php echo url_for('/search.php') ?>" method="post">
+          <form class="form-inline" action="<?php echo url_for('/public/search.php') ?>" method="post">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" onkeydown="searchq();">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
@@ -47,7 +47,7 @@
     <section id="content">
 
       <div class="form-center">
-        <form class="form" action="<?php echo url_for('/search.php') ?>" method="post">
+        <form class="form" action="<?php echo url_for('/public/search.php') ?>" method="post">
           <div class="row">
             <div class="col-9">
               <input class="form-control form-control-lg" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -63,7 +63,7 @@
 
 
       <div class="buton">
-        <a href="<?php echo url_for('/browse.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All</button></a>
+        <a href="<?php echo url_for('/public/browse.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All</button></a>
 
       </div>
 
