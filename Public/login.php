@@ -1,5 +1,5 @@
-<?php require_once('../Private/initialize.php') ?>
-<?php include('../Private/adminheader1.php') ?>
+<?php require_once('../private/initialize.php') ?>
+<?php include('../private/adminheader1.php') ?>
 <?php
 if(request_is_post()) {
   $user = [];
@@ -22,7 +22,7 @@ if(request_is_post()) {
       if (password_verify($user['password'], $result['hashed_password'])) {
         //password true
         login_user($result);
-        redirect_to(url_for('/public/index.php'));
+        redirect_to(url_for('/index.php'));
       } else {
         //password wrong
         $errors[] = "incorrect username or password." ;
@@ -51,7 +51,7 @@ if(request_is_post()) {
               <?php echo errors_display($errors); ?>
             </div>
             <div class="d-flex justify-content-center form_container">
-              <form action="<?php echo url_for('/public/login.php'); ?>" method="post">
+              <form action="<?php echo url_for('/login.php'); ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>

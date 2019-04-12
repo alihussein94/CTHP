@@ -1,4 +1,4 @@
-<?php require_once('../data/initialize.php') ?>
+<?php require_once('../../private/initialize.php') ?>
 <?php
 
   $id = $_GET['id'];

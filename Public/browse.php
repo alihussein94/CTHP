@@ -1,5 +1,5 @@
-<?php require_once('../Private/initialize.php') ?>
-<?php include('../Private/adminheader.php') ?>
+<?php require_once('../private/initialize.php') ?>
+<?php include('../private/adminheader.php') ?>
 <?php login_check_user(); ?>
 <?php
 
@@ -11,14 +11,14 @@ $result_set = find_all_drugs();
 
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand h1" href="index.php">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/public/logout.php'); ?>">Logout</a>
-        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/public/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
+        <a class="navbar-brand h1" href="index.php">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
+        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <form class="form-inline" action="<?php echo url_for('/public/search.php') ?>" method="post">
+          <form class="form-inline" action="<?php echo url_for('/search.php') ?>" method="post">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" onkeydown="searchq();">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>

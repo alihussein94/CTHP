@@ -1,6 +1,6 @@
-<?php require_once('../data/initialize.php') ?>
+<?php require_once('../../private/initialize.php') ?>
 <?php login_check(); ?>
-<?php include('../data/adminheader1.php') ?>
+<?php include('../../private/adminheader1.php') ?>
 <?php
 
 if (!isset($_GET['id'])) {

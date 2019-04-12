@@ -1,11 +1,10 @@
 <?php
 ob_start(); //start output buffering
-session_start(); //start session
+session_start();
 
-//uncomment when upload to server
 // define("WWW_ROOT", '');
 
-define("WWW_ROOT", '/drugs');
+define("WWW_ROOT", '/drugs/public');
 
 
 require_once('functions.php');
