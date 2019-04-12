@@ -111,7 +111,7 @@ function login_user($result) {
 
 function login_check() {
   if (!isset($_SESSION['admin_id'])) {
-    redirect_to(url_for('/admin/login.php'));
+    redirect_to(url_for('/admin/drug_availability/login.php'));
 
   } else {
 

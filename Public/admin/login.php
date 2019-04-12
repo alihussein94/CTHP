@@ -1,5 +1,5 @@
-<?php require_once('../../../private/initialize.php') ?>
-<?php include('../../../private/adminheader1.php') ?>
+<?php require_once('../../private/initialize.php') ?>
+<?php include('../../private/adminheader1.php') ?>
 <?php
 if(request_is_post()) {
   $admin = [];
