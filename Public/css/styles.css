@@ -13,10 +13,9 @@ h3 {
 }
 
 hr {
-  border-style: dotted none none;
-  border-width:10px;
-  border-color: #393e46;
-  width: 20%;
+  border-style: solid none none;
+  border-width:1px;
+  border-color: #fff;
   margin: 5% auto;
 
 }
@@ -46,6 +45,10 @@ hr {
 #content {
   background-color: #00adb5;
   padding: 2% 0 3% 0;
+}
+
+.report-content {
+  min-height: 88vh;
 }
 
 #content .box-1 {
@@ -115,9 +118,27 @@ hr {
 }
 
 #content .buton {
-  /* margin: 0% 10% 3%; */
   text-align: center;
+  margin-top: 1.25rem;
 }
+
+#content .report-grid-1 {
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  justify-content: start;
+  grid-gap: 1rem;
+}
+
+#content .report-grid-2 {
+  color: #fff;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: start;
+  grid-gap: 1rem;
+}
+
+
 
 #useful {
   background-color: #393e46;
