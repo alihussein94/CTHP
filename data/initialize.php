@@ -1,7 +1,8 @@
 <?php
 ob_start(); //start output buffering
-session_start();
+session_start(); //start session
 
+//uncomment when upload to server
 // define("WWW_ROOT", '');
 
 define("WWW_ROOT", '/drugs');
