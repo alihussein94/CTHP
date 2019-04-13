@@ -98,8 +98,43 @@ function login_admin($result) {
   $_SESSION['admin_id'] = $result['id'];
   $_SESSION['user_name'] = $result['user_name'];
   $_SESSION['last_login'] = time();
+  if ($result['user_name'] == 'CPTH') {
+    $_SESSION['permission'] = 'drug_availability';
+  } elseif ($result['user_name'] == 'reports') {
+    $_SESSION['permission'] = 'drug_reports';
+  } else {
+
+  }
   return true ;
 }
+
+function check_permission_availability() {
+  if ($_SESSION['permission'] == 'drug_availability') {
+    //do nothing
+  } else {
+    redirect_to(url_for('/admin/login.php'));
+  }
+}
+
+function check_permission_reports() {
+  if ($_SESSION['permission'] == 'drug_reports') {
+    //do nothing
+  } else {
+    redirect_to(url_for('/admin/login.php'));
+  }
+}
+
+
+function redirect_admin() {
+  if ($_SESSION['permission'] == 'drug_availability') {
+    redirect_to(url_for('/admin/drug_availability/index.php'));
+  } elseif ($_SESSION['permission'] == 'drug_reports') {
+    redirect_to(url_for('/admin/reports/index.php'));
+  } else {
+   //do nothing
+  }
+}
+
 
 function login_user($result) {
   session_regenerate_id();
@@ -111,10 +146,10 @@ function login_user($result) {
 
 function login_check() {
   if (!isset($_SESSION['admin_id'])) {
-    redirect_to(url_for('/admin/drug_availability/login.php'));
+    redirect_to(url_for('/admin/login.php'));
 
   } else {
-
+    //do nothing
   }
 }
 
@@ -127,5 +162,54 @@ function login_check_user() {
   }
 }
 
+function ward_name($value) {
+  switch ($value) {
+    case 1:
+        return "RCU";
+        break;
+    case 2:
+        return "الوحدة الاولى";
+        break;
+    case 3:
+        return "الوحدة الثانية";
+        break;
+
+    case 4:
+        return "الوحدة الثالثة";
+        break;
+    case 5:
+        return "الوحدة الرابعة";
+        break;
+    case 6:
+        return "الوحدة الخامسة";
+        break;
+    case 7:
+        return "الوحدة الرابعة (كيمو)";
+        break;
+    case 8:
+        return "الوحدة الخامسة (كيمو)";
+        break;
+    case 9:
+        return "الوحدة السادسة";
+        break;
+    case 10:
+        return "الخدج";
+        break;
+    case 11:
+        return "الخاص";
+        break;
+    case 12:
+        return "الكلى";
+        break;
+    case 13:
+        return "الجراحية";
+        break;
+    case 14:
+        return "الانتقالية";
+        break;
+    default:
+
+}
+}
 
  ?>

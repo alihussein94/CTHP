@@ -22,7 +22,7 @@ if(request_is_post()) {
       if (password_verify($admin['password'], $result['hashed_password'])) {
         //password true
         login_admin($result);
-        redirect_to(url_for('/admin/drug_availability/index.php'));
+        redirect_admin();
       } else {
         //password wrong
         $errors[] = "incorrect username or password." ;
@@ -51,7 +51,7 @@ if(request_is_post()) {
               <?php echo errors_display($errors); ?>
             </div>
             <div class="d-flex justify-content-center form_container">
-              <form action="<?php echo url_for('admin/drug_availability/login.php'); ?>" method="post">
+              <form action="<?php echo url_for('admin/login.php'); ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>

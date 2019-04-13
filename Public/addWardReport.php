@@ -1,6 +1,15 @@
 <?php require_once('../private/initialize.php') ?>
 <?php include('../private/adminheader.php') ?>
 <?php login_check_user(); ?>
+<?php
+if (request_is_post()) {
+  //assign value from select=>option to variable
+  $ward_value = $_POST['wards'] ?? '';
+  //use function to convert value to ward name
+  $ward_name = ward_name($ward_value);
+}
+
+ ?>
 
 
     <section id="title">
@@ -9,11 +18,6 @@
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand h1" href="#">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
-
-        <!-- change CPTH => True in order to not give information -->
-        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
-
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +36,7 @@
     <section id="content" class="report-content">
 
       <div class="box-1">
-      <form class="ward-form" action="<?php echo url_for('/sample.php') ?>" method="post">
+      <form class="ward-form" action="addward.php" method="post">
             <div class="report-grid-1">
               <div>
                 <h4>Name:</h3>
@@ -44,7 +48,8 @@
                 <h4>Ward:</h3>
               </div>
               <div>
-                <input class="form-control" type="text" name="report-ward" placeholder="from index.php $ward_name"  disabled>
+                <input class="form-control" type="text" placeholder="<?php echo $ward_name; ?>"  disabled>
+                <input class="form-control" type="text" name="report-ward" value="<?php echo u(h($ward_value)); ?>" hidden>
               </div>
             </div>
             <hr>
@@ -56,35 +61,12 @@
                 <h4>Dosage Form:</h3>
               </div>
               <div>
-                <input class="form-control" type="text" name="report-drug-name" placeholder="Drug Name">
+                <input class="form-control" type="text" name="report-drug-name-0" placeholder="Drug Name">
               </div>
               <div>
-                <input class="form-control" type="text" name="report-drug-dosage" placeholder="Dosage Form">
+                <input class="form-control" type="text" name="report-drug-dosage-0" placeholder="Dosage Form">
               </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-name-1" placeholder="Drug Name">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-dosage-1" placeholder="Dosage Form">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-name-2" placeholder="Drug Name">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-dosage-2" placeholder="Dosage Form">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-name-3" placeholder="Drug Name">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-dosage-3" placeholder="Dosage Form">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-name-4" placeholder="Drug Name">
-              </div>
-              <div>
-                <input class="form-control" type="text" name="report-drug-dosage-4" placeholder="Dosage Form">
-              </div>
+
             </div>
             <button type="button" class="btn btn-danger buton" onclick="addFields()">Add Drug</button>
             <div class="buton">

@@ -9,11 +9,6 @@
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand h1" href="#">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
-
-        <!-- change CPTH => True in order to not give information -->
-        <?php if ($_SESSION['user_name_user'] == 'CPTH') { ?> &nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/admin/index.php'); ?>">Admin Panel</a> <?php } ?>
-
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,7 +62,7 @@
           <h2>Send Daily Report For Drug Availability</h2>
         </div>
         <div class="form-center">
-          <form class="form" action="<?php echo url_for('/search.php') ?>" method="post">
+          <form class="form" action="<?php echo url_for('/addWardReport.php') ?>" method="post">
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="wards">
               <!-- <option selected>Select Ward</option> -->
               <option value="1">RCU</option>

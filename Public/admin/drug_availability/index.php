@@ -1,5 +1,6 @@
 <?php require_once('../../../private/initialize.php') ?>
 <?php login_check(); ?>
+<?php check_permission_availability(); ?>
 <?php include('../../../private/adminheader.php') ?>
 <?php
 $result_set = find_all_drugs();
@@ -12,7 +13,7 @@ $result_set = find_all_drugs();
           <a href="add.php"><i style="color: #006600;" class="fas fa-plus-circle fa-5x"></i></a>
         </div>
         <div class="col-6">
-          <a href="logout.php"><i style="color: #ff0000;" class="fas fa-sign-out-alt fa-5x"></i></a>
+          <a href="<?php echo url_for('admin/logout.php'); ?>"><i style="color: #ff0000;" class="fas fa-sign-out-alt fa-5x"></i></a>
         </div>
       </div>
     </section>

@@ -1,4 +1,6 @@
 <?php require_once('../../../private/initialize.php') ?>
+<?php login_check(); ?>
+<?php check_permission_availability(); ?>
 <?php
 
   $id = $_GET['id'];

@@ -1,4 +1,4 @@
-var i = 4;
+var i = 0;
 
 function addFields(){
   i++;
