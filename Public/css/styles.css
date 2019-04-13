@@ -195,4 +195,25 @@ hr {
   #title {
     text-align: center;
   }
+  div.row.td-edit-delete {
+    flex-direction: column;
+  }
+
+  div.row.td-edit-delete .col-6{
+    margin-bottom: 1rem;
+  }
+
+  #report_container {
+    grid-template-columns: 1fr  ;
+  }
+
+  #table-admin {
+    grid-row: 2;
+  }
+
+  #reports-filter div.filter {
+    padding: 11%;
+  }
+
+
 }
