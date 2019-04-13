@@ -1,7 +1,7 @@
-<?php require_once('../../../private/initialize.php') ?>
+<?php require_once('../../data/initialize.php') ?>
 <?php login_check(); ?>
 <?php check_permission_reports(); ?>
-<?php include('../../../private/adminheader.php') ?>
+<?php include('../../data/adminheader.php') ?>
 <?php
 if(!isset($_GET['id'])) {
   redirect_to(url_for('/admin/reports/index.php'));

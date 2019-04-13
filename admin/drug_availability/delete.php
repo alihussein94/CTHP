@@ -1,7 +1,7 @@
-<?php require_once('../../../private/initialize.php') ?>
+<?php require_once('../../data/initialize.php') ?>
 <?php login_check(); ?>
 <?php check_permission_availability(); ?>
-<?php include('../../../private/adminheader1.php') ?>
+<?php include('../../data/adminheader1.php') ?>
 <?php
 
 if (!isset($_GET['id'])) {

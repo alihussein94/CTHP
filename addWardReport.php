@@ -1,5 +1,5 @@
-<?php require_once('../private/initialize.php') ?>
-<?php include('../private/adminheader.php') ?>
+<?php require_once('data/initialize.php') ?>
+<?php include('data/adminheader.php') ?>
 <?php login_check_user(); ?>
 <?php
 if (request_is_post()) {

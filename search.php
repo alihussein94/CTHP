@@ -1,12 +1,18 @@
-<?php require_once('../private/initialize.php') ?>
-<?php include('../private/adminheader.php') ?>
+<?php require_once('data/initialize.php') ?>
+<?php include('data/adminheader.php') ?>
 <?php login_check_user(); ?>
+
 <?php
+if (request_is_post()) {
+  $search = $_POST['search'];
+  $search = preg_replace("#[^0-9a-z]#i", "", $search);
+  $sql = "SELECT * FROM drugs WHERE drug_name LIKE '%" . $search . "%'";
+  $result_set = mysqli_query($db, $sql);
+  confirm_result_set($result_set);
+  $count = mysqli_num_rows($result_set);
 
-$result_set = find_all_drugs();
-
+}
  ?>
-
     <section id="title">
 
       <!-- Nav Bar -->
@@ -16,12 +22,6 @@ $result_set = find_all_drugs();
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <form class="form-inline" action="<?php echo url_for('/search.php') ?>" method="post">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" onkeydown="searchq();">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
       </nav>
 
     </section>
@@ -38,7 +38,14 @@ $result_set = find_all_drugs();
           </tr>
         </thead>
         <tbody>
-          <?php while($result = mysqli_fetch_assoc($result_set)) { ?>
+          <?php
+          if ($count == 0) {
+            echo '<h2> Theres no search results.</h2>' ;
+          } else {
+
+            while($result = mysqli_fetch_assoc($result_set)) { ?>
+
+
           <tr>
             <td><?php echo h($result['drug_name']) ; ?></td>
             <td><?php echo h($result['dosage_form']) ; ?></td>
@@ -48,7 +55,7 @@ $result_set = find_all_drugs();
               echo '<i style="color: #ff0000;" class="fas fa-times-circle fa-2x"></i>';
             } ; ?></td>
           </tr>
-        <?php } ?>
+        <?php } }?>
         </tbody>
       </table>
     </section>
@@ -62,9 +69,9 @@ $result_set = find_all_drugs();
     </footer>
 
   </div>
+  <?php mysqli_free_result($result_set); ?>
 
 </body>
-<?php mysqli_free_result($result_set); ?>
 
 </html>
 <?php db_disconnect($db) ?>

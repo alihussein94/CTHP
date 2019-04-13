@@ -4,7 +4,7 @@ session_start();
 
 // define("WWW_ROOT", '');
 
-define("WWW_ROOT", '/drugs/public');
+define("WWW_ROOT", '/drugs');
 
 
 require_once('functions.php');

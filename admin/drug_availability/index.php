@@ -1,7 +1,7 @@
-<?php require_once('../../../private/initialize.php') ?>
+<?php require_once('../../data/initialize.php') ?>
 <?php login_check(); ?>
 <?php check_permission_availability(); ?>
-<?php include('../../../private/adminheader.php') ?>
+<?php include('../../data/adminheader.php') ?>
 <?php
 $result_set = find_all_drugs();
 

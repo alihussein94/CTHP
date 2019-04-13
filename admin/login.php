@@ -1,15 +1,15 @@
-<?php require_once('../private/initialize.php') ?>
-<?php include('../private/adminheader1.php') ?>
+<?php require_once('../data/initialize.php') ?>
+<?php include('../data/adminheader1.php') ?>
 <?php
 if(request_is_post()) {
-  $user = [];
-  $user['username'] = $_POST['user_name'] ?? '';
-  $user['password'] = $_POST['password'] ?? '';
+  $admin = [];
+  $admin['username'] = $_POST['user_name'] ?? '';
+  $admin['password'] = $_POST['password'] ?? '';
 
-  $errors = admin_validation($user);
+  $errors = admin_validation($admin);
   if (empty($errors)) {
-    $sql = "SELECT * FROM user ";
-    $sql .= "WHERE user_name='" . db_escape($db, $user['username']) . "' ";
+    $sql = "SELECT * FROM super_user ";
+    $sql .= "WHERE user_name='" . db_escape($db, $admin['username']) . "' ";
     $sql .= "LIMIT 1";
 
     $result_set = mysqli_query($db, $sql);
@@ -19,10 +19,10 @@ if(request_is_post()) {
 
     if ($result) {
       //check password
-      if (password_verify($user['password'], $result['hashed_password'])) {
+      if (password_verify($admin['password'], $result['hashed_password'])) {
         //password true
-        login_user($result);
-        redirect_to(url_for('/index.php'));
+        login_admin($result);
+        redirect_admin();
       } else {
         //password wrong
         $errors[] = "incorrect username or password." ;
@@ -51,7 +51,7 @@ if(request_is_post()) {
               <?php echo errors_display($errors); ?>
             </div>
             <div class="d-flex justify-content-center form_container">
-              <form action="<?php echo url_for('/login.php'); ?>" method="post">
+              <form action="<?php echo url_for('admin/login.php'); ?>" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
