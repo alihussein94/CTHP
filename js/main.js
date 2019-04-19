@@ -1,3 +1,4 @@
+
 var i = 0;
 
 function addFields(){
@@ -36,3 +37,19 @@ function addFields(){
           container.appendChild(div2);
 
         }
+
+function validateForm() {
+  var x = document.querySelector('#content form.ward-form input[name="report-name"]').value;
+  if (x == "") {
+    alert("Please enter your name");
+    return false;
+  }
+}
+
+function validateDate() {
+  var x = document.querySelector('#reports-filter form input[id="filter-date-input"]').value;
+  if (x == "") {
+    alert("Please enter date");
+    return false;
+  }
+}

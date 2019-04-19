@@ -67,13 +67,22 @@ for ($i = 0; $i < $drugs_number ; $i++ ) {
 
 ?>
 
-
-<div style="width: 50%; margin: 10% auto; background-color: green; color: #fff; padding: 1rem; text-align: center;">
-  <h4> Report has been sent successfully</h4>
-</div>
-<script>
-  var timer = setTimeout(function() {
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Report has been sent successfully</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div style="width: 50%; margin: 10% auto; background-color: green; color: #fff; padding: 1rem; text-align: center;">
+      <h4> Report has been sent successfully</h4>
+    </div>
+    <script>
+    var timer = setTimeout(function() {
       window.location='<?php echo url_for('/index.php') ?>'
-  }, 3000);
-</script>
+    }, 3000);
+    </script>
+  </body>
+</html>
+
 <?php db_disconnect($db) ?>

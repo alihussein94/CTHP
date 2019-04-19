@@ -83,6 +83,9 @@
             <button class="btn btn-danger btn-lg" type="submit"><i class="fas fa-calendar-plus"></i></button>
           </form>
         </div>
+        <div class="buton">
+          <a href="<?php echo url_for('/reports/index.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All Reports</button></a>
+        </div>
       </div>
     </section>
 

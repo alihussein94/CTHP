@@ -17,7 +17,7 @@ if (request_is_post()) {
 <!-- navigation Bar -->
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand h1" href="#">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
+        <a class="navbar-brand h1" href="index.php">Drugs Availability Checker</a>&nbsp; &nbsp; &nbsp; <a href="<?php echo url_for('/logout.php'); ?>">Logout</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +36,7 @@ if (request_is_post()) {
     <section id="content" class="report-content">
 
       <div class="box-1">
-      <form class="ward-form" action="addward.php" method="post">
+      <form class="ward-form" action="addward.php" onsubmit="return validateForm()" method="post">
             <div class="report-grid-1">
               <div>
                 <h4>Name:</h3>
