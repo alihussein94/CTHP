@@ -61,7 +61,7 @@ if (request_is_post()) {
         <div class="filter">
           <h4>Filter</h4>
           <hr>
-          <form class="" action="filter.php" onsubmit="return validateDate()" method="post">
+          <form class="" action="filter.php" method="post">
             <div class="form-group row">
               <label for="filter-ward-inpu" class="col-sm-2 col-form-label">Ward</label>
               <div class="col-sm-10">
@@ -86,7 +86,7 @@ if (request_is_post()) {
             <div class="form-group row">
               <label for="filter-date-input" class="col-sm-2 col-form-label">Date</label>
               <div class="col-sm-10">
-              <input type="date" class="form-control" id="filter-date-input" name="report_date">
+              <input type="date" class="form-control" id="filter-date-input" name="report_date" required>
               </div>
             </div>
             <hr>

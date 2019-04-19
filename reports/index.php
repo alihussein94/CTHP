@@ -74,7 +74,7 @@ confirm_result_set($result_set);
         <div class="filter">
           <h4>Filter</h4>
           <hr>
-          <form class="" action="filter.php" onsubmit="return validateDate()" method="post">
+          <form class="" action="filter.php" method="post">
             <div class="form-group row">
               <label for="filter-ward-inpu" class="col-sm-2 col-form-label">Ward</label>
               <div class="col-sm-10">
@@ -100,7 +100,7 @@ confirm_result_set($result_set);
             <div class="form-group row">
               <label for="filter-date-input" class="col-sm-2 col-form-label">Date</label>
               <div class="col-sm-10">
-              <input type="date" class="form-control" id="filter-date-input" name="report_date">
+              <input type="date" class="form-control" id="filter-date-input" name="report_date" required>
               </div>
             </div>
             <hr>

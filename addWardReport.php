@@ -36,13 +36,13 @@ if (request_is_post()) {
     <section id="content" class="report-content">
 
       <div class="box-1">
-      <form class="ward-form" action="addward.php" onsubmit="return validateForm()" method="post">
+      <form class="ward-form" action="addward.php" method="post">
             <div class="report-grid-1">
               <div>
                 <h4>Name:</h3>
               </div>
               <div>
-                <input class="form-control" type="text" name="report-name" placeholder="Please Enter Your Name">
+                <input class="form-control" type="text" name="report-name" placeholder="Please Enter Your Name" required>
               </div>
               <div>
                 <h4>Ward:</h3>
@@ -61,10 +61,10 @@ if (request_is_post()) {
                 <h4>Dosage Form:</h3>
               </div>
               <div>
-                <input class="form-control" type="text" name="report-drug-name-0" placeholder="Drug Name">
+                <input class="form-control" type="text" name="report-drug-name-0" placeholder="Drug Name" required>
               </div>
               <div>
-                <input class="form-control" type="text" name="report-drug-dosage-0" placeholder="Dosage Form">
+                <input class="form-control" type="text" name="report-drug-dosage-0" placeholder="Dosage Form" >
               </div>
 
             </div>
