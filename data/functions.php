@@ -141,7 +141,18 @@ function login_user($result) {
   $_SESSION['user_id'] = $result['id'];
   $_SESSION['user_name_user'] = $result['user_name'];
   $_SESSION['last_user_login'] = time();
+  if ($result['user_name'] == 'pharmacist') {
+    $_SESSION['user_type'] = 'ph';
+  } else {
+
+  }
   return true ;
+}
+
+function check_permission_user_type() {
+  if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'ph') {
+    return true;
+  }
 }
 
 function login_check() {
@@ -157,9 +168,7 @@ function login_check_user() {
   if (!isset($_SESSION['user_id'])) {
     redirect_to(url_for('/login.php'));
 
-  } else {
-
-  }
+  } else {}
 }
 
 function ward_name($value) {

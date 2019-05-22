@@ -62,36 +62,39 @@
         </div>
       </div>
 
-      <div class="box-1">
-        <div class="search-title">
-          <h2>Send Daily Report For Drug Availability</h2>
+      <?php if(check_permission_user_type()) { ?>
+        <div class="box-1">
+          <div class="search-title">
+            <h2>Send Daily Report For Drug Availability</h2>
+          </div>
+          <div class="form-center">
+            <form class="form" action="<?php echo url_for('/addWardReport.php') ?>" method="post">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="wards">
+                <!-- <option selected>Select Ward</option> -->
+                <option value="1">RCU</option>
+                <option value="2">الوحدة الاولى</option>
+                <option value="3">الوحدة الثانية</option>
+                <option value="4">الوحدة الثالثة</option>
+                <option value="5">الوحدة الرابعة</option>
+                <option value="6">الوحدة الخامسة</option>
+                <option value="7">الوحدة الرابعة (كيمو)</option>
+                <option value="8">الوحدة الخامسة (كيمو)</option>
+                <option value="9">الوحدة السادسة</option>
+                <option value="10">الخدج</option>
+                <option value="11">الخاص</option>
+                <option value="12">الكلى</option>
+                <option value="13">الجراحية</option>
+                <option value="14">الانتقالية</option>
+              </select>
+              <button class="btn btn-danger btn-lg" type="submit"><i class="fas fa-calendar-plus"></i></button>
+            </form>
+          </div>
+          <div class="buton">
+            <a href="<?php echo url_for('/reports/index.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All Reports</button></a>
+          </div>
         </div>
-        <div class="form-center">
-          <form class="form" action="<?php echo url_for('/addWardReport.php') ?>" method="post">
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="wards">
-              <!-- <option selected>Select Ward</option> -->
-              <option value="1">RCU</option>
-              <option value="2">الوحدة الاولى</option>
-              <option value="3">الوحدة الثانية</option>
-              <option value="4">الوحدة الثالثة</option>
-              <option value="5">الوحدة الرابعة</option>
-              <option value="6">الوحدة الخامسة</option>
-              <option value="7">الوحدة الرابعة (كيمو)</option>
-              <option value="8">الوحدة الخامسة (كيمو)</option>
-              <option value="9">الوحدة السادسة</option>
-              <option value="10">الخدج</option>
-              <option value="11">الخاص</option>
-              <option value="12">الكلى</option>
-              <option value="13">الجراحية</option>
-              <option value="14">الانتقالية</option>
-            </select>
-            <button class="btn btn-danger btn-lg" type="submit"><i class="fas fa-calendar-plus"></i></button>
-          </form>
-        </div>
-        <div class="buton">
-          <a href="<?php echo url_for('/reports/index.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All Reports</button></a>
-        </div>
-      </div>
+    <?php  }   ?>
+
     </section>
 
     <section id="useful">

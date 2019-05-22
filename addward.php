@@ -1,5 +1,9 @@
 <?php require_once('data/initialize.php') ?>
-<?php login_check_user(); ?>
+<?php login_check_user();
+if(!check_permission_user_type()) {
+  redirect_to(url_for('/index.php'));
+}
+?>
 
 <?php
 //check if request is post
