@@ -14,7 +14,7 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <form class="form-inline" action="<?php echo url_for('/search.php') ?>" method="post">
+          <form class="form-inline" action="<?php echo url_for('/search.php') ?>" method="get">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" onkeydown="searchq();">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
@@ -47,10 +47,15 @@
         </div>
 
         <div class="form-center">
-          <form class="form" action="<?php echo url_for('/search.php') ?>" method="post">
-            <input class="form-control form-control-lg" type="search" name="search" placeholder="Search" aria-label="Search">
+          <form id="search-form" class="form" action="<?php echo url_for('/search.php') ?>" method="get">
+            <input id="search" class="form-control form-control-lg" type="search" name="search" placeholder="Search" aria-label="Search" autocomplete="off">
             <button class="btn btn-danger btn-lg" type="submit"><i class="fas fa-search"></i></button>
           </form>
+          <div class="suggestions-div">
+            <ul id="suggestions">
+              <!-- <li><a href="#">test</a></li> -->
+            </ul>
+          </div>
         </div>
         <div class="buton">
           <a href="<?php echo url_for('/browse.php') ?>"><button type="button" class="btn btn-warning btn-lg ">Browse All Drugs</button></a>

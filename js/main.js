@@ -38,6 +38,60 @@ function addFields(){
 
         }
 
+// note: IE8 doesn't support DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+
+  var suggestions = document.getElementById("suggestions");
+  var form = document.getElementById("search-form");
+  var search = document.getElementById("search");
+
+  function suggestionsToList(json) {
+    // <li><a href="search.php?q=alpha">Alpha</a></li>
+    var output = '';
+
+    for(i=0; i < json.length; i++) {
+      output += '<li>';
+      output += '<a href="search.php?search=' + json[i].name + '">';
+      output += json[i].name + ' ' + json[i].dosage;
+      output += '</a>';
+      output += '</li>';
+    }
+
+    return output;
+  }
+
+  function showSuggestions(json) {
+    var li_list = suggestionsToList(json);
+    suggestions.innerHTML = li_list;
+    suggestions.style.display = 'block';
+  }
+
+  function getSuggestions() {
+    var q = search.value;
+
+    if(q.length < 3) {
+      suggestions.style.display = 'none';
+      return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'autosuggest.php?search=' + q, true);
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState == 4 && xhr.status == 200) {
+        var result = xhr.responseText;
+        var json = JSON.parse(result);
+        console.log(json);
+        showSuggestions(json);
+      }
+    };
+    xhr.send();
+  }
+
+  search.addEventListener("input", getSuggestions);
+
+});
+
 // function validateForm() {
 //   var x = document.querySelector('#content form.ward-form input[name="report-name"]').value;
 //   if (x == "") {

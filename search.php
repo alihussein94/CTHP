@@ -3,9 +3,9 @@
 <?php login_check_user(); ?>
 
 <?php
-if (request_is_post()) {
-  $search = $_POST['search'];
-  $search = preg_replace("#[^0-9a-z]#i", "", $search);
+if (request_is_get()) {
+  $search = $_GET['search'];
+  //$search = preg_replace("#[^0-9a-z]#i", "", $search);
   $sql = "SELECT * FROM drugs WHERE drug_name LIKE '%" . $search . "%'";
   $result_set = mysqli_query($db, $sql);
   confirm_result_set($result_set);
